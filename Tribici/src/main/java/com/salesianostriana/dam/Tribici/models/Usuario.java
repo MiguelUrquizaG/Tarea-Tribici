@@ -25,9 +25,6 @@ public class Usuario {
     private int pin;
     private double saldo;
 
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "usuario")
-    private Set<Uso> usoSet=new HashSet<>();
-
 
     @Override
     public final boolean equals(Object o) {

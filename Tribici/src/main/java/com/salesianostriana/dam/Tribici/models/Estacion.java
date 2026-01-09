@@ -26,12 +26,26 @@ public class Estacion {
     private int capacidad;
 
     @Builder.Default
-    @OneToMany(fetch = FetchType.LAZY,mappedBy ="estacion")
+    @OneToMany(mappedBy ="estacion")
     private Set<Bicicleta>bicicletas = new HashSet<>();
 
+
+    //Métodos de utilidad
+    public void addBicicleta(Bicicleta bicicleta){
+        bicicletas.add(bicicleta);
+        bicicleta.setEstacion(this);
+    }
+
+    public void removeBicicleta(Bicicleta bicicleta){
+        bicicletas.remove(bicicleta);
+        bicicleta.setEstacion(null);
+    }
+
+
+    /*
     @Builder.Default
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "estacionFinal")
-    private Set<Uso>usos= new HashSet<>();
+    private Set<Uso>usos= new HashSet<>();*/
 
     @Override
     public final boolean equals(Object o) {

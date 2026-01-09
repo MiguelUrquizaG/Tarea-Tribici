@@ -26,11 +26,8 @@ public class Bicicleta {
     private Estados estados;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "estacion_id")
+    @JoinColumn(name = "estacion_id",foreignKey = @ForeignKey(name = "fk_bicicleta_estacion"))
     private Estacion estacion;
-
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "bicicleta")
-    private Set<Uso> usoSet = new HashSet<>();
 
 
     @Override
