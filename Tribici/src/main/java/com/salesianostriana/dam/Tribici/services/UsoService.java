@@ -52,6 +52,7 @@ public class UsoService {
         Bicicleta bicicleta = bicicletaRepository.findById(idBicicleta)
                 .orElseThrow(() -> new EntityNotFoundException("No se ha encontrado la bicicleta"));
 
+        return null;
     }
 
 
